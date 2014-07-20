@@ -20,13 +20,13 @@ var kittenGenerator = {
    * @type {string}
    * @private
    */
-  searchOnFlickr_: 'https://secure.flickr.com/services/rest/\?' +
-      'method=flickr.photos.search\&' +
-      'api_key=90485e931f687a9b9c2a66bf58a3861a\&' +
-      'text=' + encodeURIComponent(QUERY) + '\&' +
-      'safe_search=1\&' +
-      'content_type=1\&' +
-      'sort=interestingness-desc\&' +
+  searchOnFlickr_: 'https://secure.flickr.com/services/rest/?' +
+      'method=flickr.photos.search&' +
+      'api_key=90485e931f687a9b9c2a66bf58a3861a&' +
+      'text=' + encodeURIComponent(QUERY) + '&' +
+      'safe_search=1&' +
+      'content_type=1&' +
+      'sort=interestingness-desc&' +
       'per_page=20',
 
   /**
@@ -81,3 +81,23 @@ var kittenGenerator = {
 document.addEventListener('DOMContentLoaded', function () {
   kittenGenerator.requestKittens();
 });
+window.addEventListener("keypress", function(){
+  checkIfEnter(event)
+});
+
+function checkIfEnter(e)
+{
+  if (!e) e = window.event;
+  if (e.keyCode == '13'){
+    todo = document.getElementById('text-input').value
+    document.getElementById('text-input').value = '';
+    
+    var ul = document.getElementById("todo-list");
+    var li = document.createElement("li");
+    li.setAttribute("class", "todo-item");
+    li.appendChild(document.createTextNode(todo));
+    ul.appendChild(li);
+    return false;
+
+  }
+}
