@@ -93,10 +93,15 @@ function checkIfEnter(e)
     document.getElementById('text-input').value = '';
     
     var ul = document.getElementById("todo-list");
+    
     var li = document.createElement("li");
     li.setAttribute("class", "todo-item");
     li.appendChild(document.createTextNode(todo));
-    ul.appendChild(li);
+    
+    var box = document.createElement("div");
+    box.setAttribute("class", "item-background");
+    box.appendChild(li);
+    ul.appendChild(box);
     return false;
 
   }
