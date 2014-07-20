@@ -6,5 +6,8 @@
   "version": "1.0",
   "chrome_url_overrides" : {
     "newtab": "todo.html"
-  }
+  },
+  "permissions": [
+          "storage"
+   ]
 }
