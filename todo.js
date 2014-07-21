@@ -77,8 +77,11 @@ var kittenGenerator = {
   }
 };
 
+number_of_items = 0;
+
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
+
   kittenGenerator.requestKittens();
 });
 window.addEventListener("keypress", function(){
@@ -100,25 +103,43 @@ function checkIfEnter(e)
       
       var li = document.createElement("li");
       li.setAttribute("class", "todo-item");
+      li.setAttribute("id", number_of_items);
       li.appendChild(document.createTextNode(todo));
 
       var button = document.createElement("button");
       button.setAttribute("class", "complete-button");
+      button.setAttribute("id", number_of_items);
+      
       button.innerHTML = "Done";
 
       li.appendChild(button);
       
       var box = document.createElement("div");
       box.setAttribute("class", "item-background");
+      box.setAttribute("id", number_of_items);
       box.appendChild(li);
       ul.appendChild(box);
+      number_of_items = number_of_items + 1;
       return false;
     }
-    
-
   }
 }
+
 function crossOutItem(e)
 {
-  console.log("someone clicked something")
+  if (!e) e = window.event;
+  btn = e.target || e.srcElement;
+  if(btn.id != 'text-input'){
+      if(btn.innerHTML == "Remove"){
+      }else{
+        console.log(btn.id);
+        document.getElementById(btn.id).getElementsByClassName("todo-item")[0].setAttribute("class", "todo-item completed-item");
+        console.log(document.getElementById(btn.id).getElementsByClassName("todo-item")[0]);
+        btn.innerHTML = "Remove"
+      }
+      
+    }
+
+    
+  
 }
