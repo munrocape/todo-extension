@@ -96,6 +96,7 @@ function checkIfEnter(e)
   if (!e) e = window.event;
   if (e.keyCode == '13'){
     if(document.getElementById('text-input').value != ''){
+      
       todo = document.getElementById('text-input').value
       document.getElementById('text-input').value = '';
       
@@ -120,6 +121,7 @@ function checkIfEnter(e)
       box.appendChild(li);
       ul.appendChild(box);
       number_of_items = number_of_items + 1;
+
       return false;
     }
   }
@@ -131,10 +133,11 @@ function crossOutItem(e)
   btn = e.target || e.srcElement;
   if(btn.id != 'text-input'){
       if(btn.innerHTML == "Remove"){
-      }else{
         console.log(btn.id);
+        var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
+        item.parentNode.removeChild(item);
+      }else{
         document.getElementById(btn.id).getElementsByClassName("todo-item")[0].setAttribute("class", "todo-item completed-item");
-        console.log(document.getElementById(btn.id).getElementsByClassName("todo-item")[0]);
         btn.innerHTML = "Remove"
       }
       
