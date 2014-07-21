@@ -84,25 +84,41 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener("keypress", function(){
   checkIfEnter(event)
 });
+window.addEventListener("click", function(){
+  crossOutItem(event)
+})
 
 function checkIfEnter(e)
 {
   if (!e) e = window.event;
   if (e.keyCode == '13'){
-    todo = document.getElementById('text-input').value
-    document.getElementById('text-input').value = '';
+    if(document.getElementById('text-input').value != ''){
+      todo = document.getElementById('text-input').value
+      document.getElementById('text-input').value = '';
+      
+      var ul = document.getElementById("todo-list");
+      
+      var li = document.createElement("li");
+      li.setAttribute("class", "todo-item");
+      li.appendChild(document.createTextNode(todo));
+
+      var button = document.createElement("button");
+      button.setAttribute("class", "complete-button");
+      button.innerHTML = "Done";
+
+      li.appendChild(button);
+      
+      var box = document.createElement("div");
+      box.setAttribute("class", "item-background");
+      box.appendChild(li);
+      ul.appendChild(box);
+      return false;
+    }
     
-    var ul = document.getElementById("todo-list");
-    
-    var li = document.createElement("li");
-    li.setAttribute("class", "todo-item");
-    li.appendChild(document.createTextNode(todo));
-    
-    var box = document.createElement("div");
-    box.setAttribute("class", "item-background");
-    box.appendChild(li);
-    ul.appendChild(box);
-    return false;
 
   }
+}
+function crossOutItem(e)
+{
+  console.log("someone clicked something")
 }

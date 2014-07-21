@@ -18,6 +18,14 @@
         padding-left: 20px;
         font-family: Lobster;
         color:white;
+        text-decoration: none;
+      }
+      a.visited{
+        color:white;
+        text-decoration: none;
+      }
+      a{
+        text-decoration: none;
       }
       h3{
         color:gray;
@@ -49,10 +57,10 @@
         font-size:28px;
         list-style-type: none;
         text-align:center; 
-        padding-bottom: 25px;
+        padding-bottom: 20px;
         color:white;
         background:black;
-        opacity: 0.4;
+        opacity: 0.6;
       }
       .todo-list{
         text-align:center;
@@ -69,16 +77,29 @@
         height:1px;
         background-color:black;
       }
+      .complete-button{
+        float:right;
+        margin-top:5px;
+        margin-right:5px;
+        background: transparent;
+        border: none !important;
+        outline:none;
+        color:white;
+        height:50px;
+        width:50px;
+      }
     </style>
 
     <script src="todo.js"></script>
   </head>
   <body>
-  <h2>myTodo</h2>
+  <a href="http://www.munrocape.github.io"><h2>myTodo</h2></a>
   
 <div class="enter-todo"><input class="text-input" id="text-input" type="text" name="newTodo" placeholder="What's next?"></div>
   <div class="header-underline"></div>
-  <ul class="todo-list" id="todo-list"></ul>
+  <ul class="todo-list" id="todo-list">
+
+  </ul>
   
   </body>
 </html>
