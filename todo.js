@@ -107,6 +107,7 @@ function addToList()
 
   var textSpan = document.createElement('span')
   textSpan.innerHTML = todo;
+  textSpan.setAttribute("class", "item-text");
 
   li.appendChild(textSpan);
 
