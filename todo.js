@@ -5,6 +5,7 @@ window.addEventListener("keypress", function(){
 });
 document.addEventListener('DOMContentLoaded', function () {
   populateList();
+  $.backstretch('img.png')
 });
 window.addEventListener("click", function(){
   crossOutItem(event)
