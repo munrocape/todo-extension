@@ -1,6 +1,12 @@
 @font-face { font-family: Lobster; src: url('Lobster.ttf'); } 
 @font-face {font-family: Roboto-Thin; src: url('Roboto-Thin.ttf');}
 html {
+<<<<<<< HEAD
+=======
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+>>>>>>> FETCH_HEAD
 }
 
 .logo{
