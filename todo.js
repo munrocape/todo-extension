@@ -5,7 +5,9 @@ window.addEventListener("keypress", function(){
 });
 document.addEventListener('DOMContentLoaded', function () {
   populateList();
-  $.backstretch('img.png')
+  img_index = Math.floor((Math.random() * 8) + 1);
+  img_url = 'http://munrocape.github.io/' + img_index + '.png'
+  $.backstretch(img_url)
 });
 window.addEventListener("click", function(){
   crossOutItem(event)
@@ -148,7 +150,6 @@ function crossOutItem(e)
       } 
     }
 }
-
 
 // Extend storage to save arrays as well
 Storage.prototype.setObj = function(key, obj) {
