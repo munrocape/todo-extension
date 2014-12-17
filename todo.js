@@ -11,10 +11,6 @@ window.addEventListener("click", function(){
   crossOutItem(event)
 })
 
-var background_index = Math.floor(Math.random() * 8) + 1;
-background_url = "url('http://munrocape.github.io/" + background_index.toString() + ".png')";
-document.body.style.backgroundImage=background_url;
-
 var defaultList = {};
 
 function populateList()
