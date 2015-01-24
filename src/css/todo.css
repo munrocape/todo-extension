@@ -1,5 +1,5 @@
-@font-face { font-family: Lobster; src: url('Lobster.ttf'); } 
-@font-face {font-family: Roboto-Thin; src: url('Roboto-Thin.ttf');}
+@font-face { font-family: Lobster; src: url('../fonts/Lobster.ttf'); } 
+@font-face {font-family: Roboto-Thin; src: url('../fonts/Roboto-Thin.ttf');}
 html {
 }
 
