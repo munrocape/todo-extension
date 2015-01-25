@@ -1,2 +1,9 @@
 .text-input{
 }
+
+@font-face { font-family: Lobster; src: url('../fonts/Lobster.ttf'); } 
+.logo{
+	font-family: Lobster;
+	color: white;
+	text-decoration: none;
+}
