@@ -77,9 +77,3 @@ input[type=text]{
 .item-text{
   word-wrap: break-word;
 }
-
-.list-group-item{
-  overflow: hidden; 
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
