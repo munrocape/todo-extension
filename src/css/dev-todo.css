@@ -1,4 +1,5 @@
 @font-face { font-family: Lobster; src: url('../fonts/Lobster.ttf'); } 
+@font-face {font-family: Roboto-Thin; src: url('../fonts/Roboto-Thin.ttf');}
 
 .logo{
 	font-family: Lobster;
@@ -14,4 +15,25 @@
 
 .logo:visited{
   text-decoration: none;
+}
+
+input[type=text]{
+  padding:5px; border:2px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color:transparent;
+  outline:none;
+  font-size:32px;
+  font-family: Roboto-Thin;
+  color:white;
+}
+
+*::-webkit-input-placeholder {
+  color: white;
+  opacity: 1.0;
+}
+
+.header-underline{
+  height:1px;
+  background-color:black;
 }
