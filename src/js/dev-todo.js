@@ -32,7 +32,7 @@ window.addEventListener("keypress", function(){
 });
 
 window.addEventListener("click", function(){
-  //updateItem(event)
+  updateItem(event)
 })
 
 function populateList()
@@ -113,3 +113,23 @@ function addToLocalStorage(todo_str)
   localStorage.setObj("todoList", curTodo);
 }
 
+function updateItem(e)
+{
+  if (!e) e = window.event;
+  btn = e.target || e.srcElement;
+  if(btn.className == 'uncompleted-item fa fa-check'){
+      btn.setAttribute("class", "completed-item fa fa-trash");
+      var item = document.getElementById(btn.id);
+      item.className = item.className + " strikeout";
+      // if(btn.innerHTML == "Remove"){
+      //   var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
+      //   deleteFromStorage(item);
+      //   item.parentNode.removeChild(item);
+      // }else{
+      //   var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
+      //   item.setAttribute("class", "todo-item completed-item");
+      //   strikeOutInStorage(item);
+      //   btn.innerHTML = "Remove"
+      // } 
+    }
+}
