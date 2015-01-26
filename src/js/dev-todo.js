@@ -55,10 +55,21 @@ function resetList()
   localStorage.setObj("todoList", DEFAULT_LIST)
 }
 
-function reAddToList(todo, strikeThrough)
+function reAddToList(todo, isCompleted)
 { 
-  console.log(todo + " has been struck out: " + strikeThrough);
-  addItemToList(todo);
+  console.log(todo + " " + isCompleted);
+  var ul = document.getElementById("todo-list");
+  var new_li = createTodoLi(todo);
+
+  ul.appendChild(new_li);
+
+  index = number_of_items;
+  if(isCompleted){
+    strikeThrough(index);
+  }
+
+  //addToLocalStorage(todo_str);
+  number_of_items += 1;
 }
 
 function addTodoItem(e)
@@ -75,7 +86,12 @@ function addTodoItem(e)
   }
 }
 
-function addItemToList(todo_str)
+function reAddItemToList(todo_str)
+{
+  
+}
+
+function addNewItemToList(todo_str)
 {
   var ul = document.getElementById("todo-list");
   var new_li = createTodoLi(todo_str);
@@ -88,7 +104,7 @@ function addItemToList(todo_str)
 function createTodoLi(todo_str)
 {
   var completeButton = document.createElement("a");
-  completeButton.setAttribute("id", number_of_items);
+  completeButton.setAttribute("id", 'btn-' + number_of_items);
   completeButton.setAttribute("class", "uncompleted-item fa fa-check");
   
   var badge = document.createElement("span");
@@ -106,21 +122,13 @@ function createTodoLi(todo_str)
   return li;
 }
 
-function addToLocalStorage(todo_str)
-{
-  curTodo = localStorage.getObj("todoList");
-  curTodo[todo_str] = false;
-  localStorage.setObj("todoList", curTodo);
-}
-
 function updateItem(e)
 {
   if (!e) e = window.event;
   btn = e.target || e.srcElement;
   if(btn.className == 'uncompleted-item fa fa-check'){
-      btn.setAttribute("class", "completed-item fa fa-trash");
-      var item = document.getElementById(btn.id);
-      item.className = item.className + " strikeout";
+      // Strikeout item
+      StrikeThrough(btn.id);
       // if(btn.innerHTML == "Remove"){
       //   var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
       //   deleteFromStorage(item);
@@ -131,5 +139,38 @@ function updateItem(e)
       //   strikeOutInStorage(item);
       //   btn.innerHTML = "Remove"
       // } 
-    }
+  }else if(btn.className == 'completed-item fa fa-trash'){
+    // Delete item
+    console.log("delete");
+  }
+}
+
+function strikeThrough(id){
+  
+  var item = document.getElementById(id);
+  var btn = document.getElementById('btn-' + id);
+  btn.setAttribute("class", "completed-item fa fa-trash");
+  item.className = item.className + " strikeout";
+  strikeOutInStorage(item.innerHTML.substring(76));
+}
+
+function addToLocalStorage(todoItem)
+{
+  curTodo = localStorage.getObj("todoList");
+  curTodo[todoItem] = false;
+  localStorage.setObj("todoList", curTodo);
+}
+
+function strikeOutInStorage(todoItem)
+{
+  curTodo = localStorage.getObj("todoList");
+  curTodo[todoItem] = true;
+  localStorage.setObj("todoList", curTodo);
+}
+
+function deleteFromStorage(todoItem)
+{
+  curTodo = localStorage.getObj("todoList");
+  delete curTodo[todoItem.firstChild.innerHTML];
+  localStorage.setObj("todoList", curTodo);
 }
