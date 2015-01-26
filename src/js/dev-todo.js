@@ -65,7 +65,7 @@ function reAddToList(todo, isCompleted)
 
   index = number_of_items;
   if(isCompleted){
-    strikeThrough(index);
+    strikeThroughItem(index);
   }
 
   //addToLocalStorage(todo_str);
@@ -80,15 +80,10 @@ function addTodoItem(e)
   if (e.keyCode == '13'){
     new_todo = document.getElementById('text-input').value.trim();
     if(new_todo != ''){
-      addItemToList(new_todo);
+      addNewItemToList(new_todo);
       document.getElementById('text-input').value = '';
   	}
   }
-}
-
-function reAddItemToList(todo_str)
-{
-  
 }
 
 function addNewItemToList(todo_str)
@@ -127,31 +122,29 @@ function updateItem(e)
   if (!e) e = window.event;
   btn = e.target || e.srcElement;
   if(btn.className == 'uncompleted-item fa fa-check'){
-      // Strikeout item
-      StrikeThrough(btn.id);
-      // if(btn.innerHTML == "Remove"){
-      //   var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
-      //   deleteFromStorage(item);
-      //   item.parentNode.removeChild(item);
-      // }else{
-      //   var item = document.getElementById(btn.id).getElementsByClassName("todo-item")[0];
-      //   item.setAttribute("class", "todo-item completed-item");
-      //   strikeOutInStorage(item);
-      //   btn.innerHTML = "Remove"
-      // } 
+    // Strikeout item
+    strikeThroughItem(btn.id.substring(4));
   }else if(btn.className == 'completed-item fa fa-trash'){
     // Delete item
-    console.log("delete");
+    deleteItem(btn.id.substring(4));
   }
 }
 
-function strikeThrough(id){
-  
+function strikeThroughItem(id)
+{
   var item = document.getElementById(id);
   var btn = document.getElementById('btn-' + id);
   btn.setAttribute("class", "completed-item fa fa-trash");
   item.className = item.className + " strikeout";
-  strikeOutInStorage(item.innerHTML.substring(76));
+  strikeOutInStorage(item.innerHTML.substring(80));
+}
+
+function deleteItem(id)
+{
+  var itemElement = document.getElementById(id);
+  var itemString = itemElement.innerHTML.substring(80);
+  deleteFromStorage(itemString);
+  itemElement.parentNode.removeChild(itemElement);
 }
 
 function addToLocalStorage(todoItem)
@@ -171,6 +164,6 @@ function strikeOutInStorage(todoItem)
 function deleteFromStorage(todoItem)
 {
   curTodo = localStorage.getObj("todoList");
-  delete curTodo[todoItem.firstChild.innerHTML];
+  delete curTodo[todoItem];
   localStorage.setObj("todoList", curTodo);
 }
