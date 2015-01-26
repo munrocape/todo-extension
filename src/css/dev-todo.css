@@ -37,3 +37,32 @@ input[type=text]{
   height:1px;
   background-color:black;
 }
+
+.badge{
+  color:blue;
+  background-color:transparent;
+  text-decoration:none;
+}
+
+a.fa-trash{
+	color:red;
+}
+
+a.fa-check{
+	color:green;
+}
+a{
+	text-decoration: none !important;
+	background-color: none;
+};
+
+a:hover{
+	text-decoration: none !important;
+	background-color: none;
+};
+
+a:visited{
+	text-decoration: none !important;
+	background-color: none;
+};
+

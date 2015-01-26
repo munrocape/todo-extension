@@ -89,8 +89,7 @@ function createTodoLi(todo_str)
 {
   var completeButton = document.createElement("a");
   completeButton.setAttribute("id", number_of_items);
-  var completeText = document.createTextNode("Complete");
-  completeButton.appendChild(completeText);  
+  completeButton.setAttribute("class", "uncompleted-item fa fa-check");
   
   var badge = document.createElement("span");
   badge.setAttribute("class", "badge");
