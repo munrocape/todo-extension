@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
   populateList();
   //img_index = Math.floor((Math.random() * 8) + 1);
   //img_url = 'http://munrocape.github.io/' + img_index + '.png'
-  img_url = '../city.jpg'
-  $.backstretch(img_url)
+  img_url = '../city.jpg';
+  $.backstretch(img_url);
 });
 
 window.addEventListener("keypress", function(){
-  addTodoItem(event)
+  addTodoItem(event);
 });
 
 window.addEventListener("click", function(){
@@ -39,21 +39,26 @@ function populateList()
 {
   var todoList = localStorage.getObj("todoList");
   if(todoList == undefined){
-  localStorage.setObj("todoList", DEFAULT_LIST);
+    localStorage.setObj("todoList", defaultList);
   }
-  
   var todoList = localStorage.getObj("todoList");
 
   for(var todo in todoList){
-  if (todoList.hasOwnProperty(todo)) {
-    reAddToList(todo, todoList[todo]);
+    if (todoList.hasOwnProperty(todo)) {
+      reAddToList(todo, todoList[todo]);
+    }
   }
-  }
+}
+
+function resetList()
+{
+  localStorage.setObj("todoList", DEFAULT_LIST)
 }
 
 function reAddToList(todo, strikeThrough)
 { 
-  return;
+  console.log(todo + " has been struck out: " + strikeThrough);
+  addItemToList(todo);
 }
 
 function addTodoItem(e)
@@ -64,19 +69,19 @@ function addTodoItem(e)
   if (e.keyCode == '13'){
     new_todo = document.getElementById('text-input').value.trim();
     if(new_todo != ''){
-      addNewItemToList(new_todo);
+      addItemToList(new_todo);
       document.getElementById('text-input').value = '';
   	}
   }
 }
 
-function addNewItemToList(todo_str)
+function addItemToList(todo_str)
 {
-  console.log(new_todo);
   var ul = document.getElementById("todo-list");
   var new_li = createTodoLi(todo_str);
 
   ul.appendChild(new_li);
+  addToLocalStorage(todo_str);
   number_of_items += 1;
 }
 
@@ -100,5 +105,12 @@ function createTodoLi(todo_str)
   li.appendChild(textNode);
   
   return li;
+}
+
+function addToLocalStorage(todo_str)
+{
+  curTodo = localStorage.getObj("todoList");
+  curTodo[todo_str] = false;
+  localStorage.setObj("todoList", curTodo);
 }
 
