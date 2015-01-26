@@ -1,0 +1,72 @@
+@font-face { font-family: Lobster; src: url('../fonts/Lobster.ttf'); } 
+@font-face {font-family: Roboto-Thin; src: url('../fonts/Roboto-Thin.ttf');}
+
+.logo{
+	font-family: Lobster;
+	color: white;
+	text-decoration: none;
+}
+
+.logo:hover{
+  text-decoration: none;
+  color: white;
+  background-color: none;
+}
+
+.logo:visited{
+  text-decoration: none;
+  color:white;
+}
+
+input[type=text]{
+  padding:5px; border:2px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color:transparent;
+  outline:none;
+  font-size:32px;
+  font-family: Roboto-Thin;
+  color:white;
+}
+
+*::-webkit-input-placeholder {
+  color: white;
+  opacity: 1.0;
+}
+
+.header-underline{
+  height:1px;
+  background-color:black;
+}
+
+.badge{
+  color:blue;
+  background-color:transparent;
+  text-decoration:none;
+}
+
+.strikeout{
+	text-decoration:line-through;
+}
+a.fa-trash{
+	color:red;
+}
+
+a.fa-check{
+	color:green;
+}
+a{
+	text-decoration: none !important;
+	background-color: none;
+};
+
+a:hover{
+	text-decoration: none !important;
+	background-color: none;
+};
+
+a:visited{
+	text-decoration: none !important;
+	background-color: none;
+};
+
