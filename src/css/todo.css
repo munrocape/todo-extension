@@ -26,7 +26,6 @@ input[type=text]{
   outline:none;
   font-size:32px;
   font-family: Roboto-Thin;
-  color:white;
 }
 
 *.white::-webkit-input-placeholder {
@@ -37,6 +36,14 @@ input[type=text]{
 *.black::-webkit-input-placeholder {
   color:black;
   opacity: 1.0;
+}
+
+input.white[type=text]{
+  color:white;
+}
+
+input.black[type=text]{
+  color:black;
 }
 
 .badge{

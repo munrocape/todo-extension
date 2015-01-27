@@ -1,7 +1,6 @@
 DEFAULT_LIST = {};
 number_of_items = 0;
 images = [['city.jpg', 'white'], 
-          ['nightsky.jpg', 'white'], 
           ['wave-crash.jpg','black'],
           ['coastline.jpg','white'],
           ['mountain.jpg','white']];
