@@ -2,9 +2,9 @@
 @font-face {font-family: Roboto-Thin; src: url('../fonts/Roboto-Thin.ttf');}
 
 .logo{
-	font-family: Lobster;
-	color: white;
-	text-decoration: none;
+  font-family: Lobster;
+  color: white;
+  text-decoration: none;
 }
 
 .logo:hover{
@@ -29,14 +29,14 @@ input[type=text]{
   color:white;
 }
 
-*::-webkit-input-placeholder {
-  color: white;
+*.white::-webkit-input-placeholder {
+  color:white;
   opacity: 1.0;
 }
 
-.header-underline{
-  height:1px;
-  background-color:black;
+*.black::-webkit-input-placeholder {
+  color:black;
+  opacity: 1.0;
 }
 
 .badge{
@@ -46,27 +46,29 @@ input[type=text]{
 }
 
 .strikeout{
-	text-decoration:line-through;
+  text-decoration:line-through;
 }
+
 a.fa-trash{
-	color:red;
+  color:red;
 }
 
 a.fa-check{
-	color:green;
+  color:green;
 }
+
 a{
-	text-decoration: none !important;
-	background-color: none;
-};
+  text-decoration: none !important;
+  background-color: none;
+}
 
 a:hover{
-	text-decoration: none !important;
-	background-color: none;
-};
+  text-decoration: none !important;
+  background-color: none;
+}
 
 a:visited{
-	text-decoration: none !important;
-	background-color: none;
-};
+  text-decoration: none !important;
+  background-color: none;
+}
 

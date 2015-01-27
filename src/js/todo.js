@@ -1,14 +1,21 @@
 DEFAULT_LIST = {};
 number_of_items = 0;
+images = [['city.jpg', 'white'], 
+          ['nightsky.jpg', 'white'], 
+          ['wave-crash.jpg','black'],
+          ['coastline.jpg','white'],
+          ['mountain.jpg','white']];
 
-// Extend Storage so that it can store arrays
+// Extend Storage so that it can store dictionaries
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj))
 }
 
+
 Storage.prototype.getObj = function(key) {
   return JSON.parse(this.getItem(key))
 }
+
 
 // Add function to trim leading and trailing whitespace
 if(typeof(String.prototype.trim) === "undefined")
@@ -19,21 +26,29 @@ if(typeof(String.prototype.trim) === "undefined")
   };
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
   populateList();
-  //img_index = Math.floor((Math.random() * 8) + 1);
+  img_index = Math.floor((Math.random() * images.length));
   //img_url = 'http://munrocape.github.io/' + img_index + '.png'
-  img_url = '../city.jpg';
+
+  img_url = 'http://munrocape.github.io/images/' + images[img_index][0];
+  var text_input = document.getElementById('text-input');
+  text_input.className = text_input.className + ' ' + images[img_index][1];
   $.backstretch(img_url);
+
 });
+
 
 window.addEventListener("keypress", function(){
   addTodoItem(event);
 });
 
+
 window.addEventListener("click", function(){
   updateItem(event)
 })
+
 
 function populateList()
 {
@@ -50,10 +65,12 @@ function populateList()
   }
 }
 
+
 function resetList()
 {
   localStorage.setObj("todoList", DEFAULT_LIST)
 }
+
 
 function reAddToList(todo, isCompleted)
 { 
@@ -67,10 +84,9 @@ function reAddToList(todo, isCompleted)
   if(isCompleted){
     strikeThroughItem(index);
   }
-
-  //addToLocalStorage(todo_str);
   number_of_items += 1;
 }
+
 
 function addTodoItem(e)
 {
@@ -86,6 +102,7 @@ function addTodoItem(e)
   }
 }
 
+
 function addNewItemToList(todo_str)
 {
   var ul = document.getElementById("todo-list");
@@ -95,6 +112,7 @@ function addNewItemToList(todo_str)
   addToLocalStorage(todo_str);
   number_of_items += 1;
 }
+
 
 function createTodoLi(todo_str)
 {
@@ -117,6 +135,7 @@ function createTodoLi(todo_str)
   return li;
 }
 
+
 function updateItem(e)
 {
   if (!e) e = window.event;
@@ -130,6 +149,7 @@ function updateItem(e)
   }
 }
 
+
 function strikeThroughItem(id)
 {
   var item = document.getElementById(id);
@@ -139,6 +159,7 @@ function strikeThroughItem(id)
   strikeOutInStorage(item.innerHTML.substring(80));
 }
 
+
 function deleteItem(id)
 {
   var itemElement = document.getElementById(id);
@@ -147,6 +168,7 @@ function deleteItem(id)
   itemElement.parentNode.removeChild(itemElement);
 }
 
+
 function addToLocalStorage(todoItem)
 {
   curTodo = localStorage.getObj("todoList");
@@ -154,12 +176,14 @@ function addToLocalStorage(todoItem)
   localStorage.setObj("todoList", curTodo);
 }
 
+
 function strikeOutInStorage(todoItem)
 {
   curTodo = localStorage.getObj("todoList");
   curTodo[todoItem] = true;
   localStorage.setObj("todoList", curTodo);
 }
+
 
 function deleteFromStorage(todoItem)
 {
