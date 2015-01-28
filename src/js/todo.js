@@ -53,7 +53,7 @@ function populateList()
 {
   var todoList = localStorage.getObj("todoList");
   if(todoList == undefined){
-    localStorage.setObj("todoList", defaultList);
+    localStorage.setObj("todoList", DEFAULT_LIST);
   }
   var todoList = localStorage.getObj("todoList");
 
