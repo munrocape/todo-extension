@@ -3,7 +3,7 @@
 ![todo-screen.png](todo-screen.png)
 A Google Chrome extension that takes over the new tab page - and replaces it with a todo list which can have items added, marked as completed, and removed.
 
-You can install it as an extension [here.](https://chrome.google.com/webstore/detail/mytodo/gljgcpcoddamhjlokabkcgkcnacicglh)
+You can add it to Chrome by installing it [here.](https://chrome.google.com/webstore/detail/mytodo/gljgcpcoddamhjlokabkcgkcnacicglh)
 
 ## Using Google Chrome?
 Try it out [in your browser!](https://munrocape.github.io/todo-extension/src/todo.html)
