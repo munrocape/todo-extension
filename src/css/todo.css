@@ -46,6 +46,9 @@ input.black[type=text]{
   color:black;
 }
 
+.underline{
+  border-bottom:1px solid black;
+}
 .badge{
   color:blue;
   background-color:transparent;
